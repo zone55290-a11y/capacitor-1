@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Capacitor Lab | Advanced Electronics</title>
+<style>
+:root{--bg:#071321;--panel:#10243a;--panel2:#0b1c2e;--cyan:#46d9e8;--gold:#ffcb6b;--ink:#eaf4ff;--muted:#a9bfd2;--line:#24435f}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#12304b 0,#071321 45%);color:var(--ink);font:16px/1.55 system-ui,Segoe UI,Arial}
+header{padding:34px 20px 26px;border-bottom:1px solid var(--line);background:linear-gradient(110deg,#0d2740,#071321)}
+.wrap{max-width:1100px;margin:auto;padding:0 18px}h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.05;margin:8px 0;color:white}h2{font-size:1.55rem;margin:0 0 14px;color:var(--cyan)}h3{margin:0 0 8px;color:var(--gold)}
+p{margin:8px 0}.tag{display:inline-block;border:1px solid #2d627c;border-radius:99px;padding:5px 11px;color:var(--cyan);font-size:.82rem;margin:3px}
+nav{position:sticky;top:0;background:#081827ed;backdrop-filter:blur(10px);z-index:3;border-bottom:1px solid var(--line);padding:9px 0}
+nav .wrap{display:flex;gap:9px;overflow:auto}nav a{white-space:nowrap;color:var(--ink);text-decoration:none;padding:7px 10px;border-radius:8px;background:#122b42;font-size:.9rem}
+section{padding:30px 0;border-bottom:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.card{background:linear-gradient(145deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 24px #0003}
+.small{font-size:.9rem;color:var(--muted)}.bilingual{color:#d5e7f5}.te{color:#9ee8db}.formula{font:1.08rem ui-monospace,Consolas,monospace;background:#06111d;border:1px solid #28506a;padding:12px;border-radius:10px;overflow:auto;color:#ffe19a}
+svg{max-width:100%;height:auto}.diagram{background:#071725;border:1px solid var(--line);border-radius:12px;padding:12px}
+label{display:block;color:var(--muted);margin:10px 0 4px}input{width:100%;accent-color:var(--cyan)}button{background:var(--cyan);border:0;border-radius:9px;padding:10px 15px;font-weight:700;cursor:pointer;color:#05202b}
+.metric{font-size:1.5rem;color:var(--gold);font-weight:700}.links a{color:#72e6f0;display:block;margin:8px 0;overflow-wrap:anywhere}
+canvas{width:100%;height:230px;background:#06111d;border:1px solid var(--line);border-radius:10px}
+footer{padding:28px 0;color:var(--muted);font-size:.9rem}
+@media(max-width:600px){header{padding-top:25px}.card{padding:14px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<span class="tag">ADVANCED ENGINEERING LEVEL</span><span class="tag">ENGLISH + తెలుగు</span><span class="tag">INTERACTIVE ELECTRONICS LAB</span>
+<h1>CAPACITOR<br><span style="color:var(--cyan)">Engineering Learning Lab</span></h1>
+<p class="bilingual">Understand • Visualise • Simulate • Explore</p>
+<p class="te">కెపాసిటర్‌ను అర్థం చేసుకోండి • చిత్రాల్లో చూడండి • సిమ్యులేట్ చేయండి • ప్రయోగించండి</p>
+</div></header>
+<nav><div class="wrap">
+<a href="#intro">Overview</a><a href="#types">Types</a><a href="#symbols">Symbols</a><a href="#physics">Theory</a><a href="#circuits">Circuits</a><a href="#sim">Simulation</a><a href="#applications">Applications</a><a href="#resources">Videos & Tools</a>
+</div></nav>
+<main class="wrap">
+<section id="intro"><h2>01 · What is a Capacitor? | కెపాసిటర్ అంటే ఏమిటి?</h2>
+<div class="grid">
+<div class="card"><p>A capacitor is a passive two-terminal component that stores energy in an electric field between conductive plates separated by a dielectric.</p><p class="te">రెండు వాహక ప్లేట్ల మధ్య ఇన్సులేటింగ్ పదార్థం (డైఎలెక్ట్రిక్) ఉండి, విద్యుత్ క్షేత్రంలో శక్తిని నిల్వ చేసే పాసివ్ భాగాన్ని కెపాసిటర్ అంటారు.</p></div>
+<div class="card"><h3>Key facts | ముఖ్యాంశాలు</h3><p><b>Unit:</b> farad (F) · <b>Charge:</b> coulomb (C) · <b>Voltage:</b> volt (V)</p><p><b>Ideal DC:</b> after fully charged, current approaches zero.</p><p class="te">పూర్తిగా ఛార్జ్ అయిన తర్వాత ఆదర్శ DC సర్క్యూట్‌లో కరెంట్ దాదాపు సున్నా అవుతుంది.</p></div>
+</div>
+<div class="diagram" style="margin-top:15px"><svg viewBox="0 0 760 230" role="img" aria-label="Capacitor plate and electric field diagram">
+<rect x="1" y="1" width="758" height="228" rx="12" fill="#071725"/>
+<rect x="275" y="42" width="13" height="145" rx="3" fill="#46d9e8"/><rect x="472" y="42" width="13" height="145" rx="3" fill="#ffcb6b"/>
+<g stroke="#b6d9ed" stroke-width="2" fill="none"><path d="M295 65 H462 M295 95 H462 M295 125 H462 M295 155 H462" stroke-dasharray="5 5"/><path d="M450 59 l12 6 -12 6 M450 89 l12 6 -12 6 M450 119 l12 6 -12 6 M450 149 l12 6 -12 6"/></g>
+<text x="210" y="28" fill="#46d9e8" font-size="16">Positive plate (+Q)</text><text x="490" y="28" fill="#ffcb6b" font-size="16">Negative plate (−Q)</text>
+<text x="350" y="207" fill="#d7e8f4" font-size="15">Dielectric + electric field</text>
+<text x="40" y="105" fill="#a9bfd2" font-size="14">Stored energy</text><path d="M150 110 H245" stroke="#a9bfd2" stroke-width="2"/>
+</svg></div></section>
+<section id="types"><h2>02 · Capacitor Types | రకాలు</h2><div class="grid">
+<div class="card"><h3>Electrolytic</h3><p>High capacitance, polarised; observe + and − terminals.</p><p class="te">ఎక్కువ కెపాసిటెన్స్; polarity తప్పనిసరిగా పాటించాలి.</p></div>
+<div class="card"><h3>Ceramic</h3><p>Compact, commonly non-polarised; used for high-frequency bypassing.</p><p class="te">చిన్న పరిమాణం; హై-ఫ్రీక్వెన్సీ ఫిల్టరింగ్‌లో ఉపయోగం.</p></div>
+<div class="card"><h3>Film</h3><p>Stable, low-loss, useful in timing and AC applications.</p><p class="te">స్థిరమైన విలువ, తక్కువ నష్టాలు; టైమింగ్ మరియు ACలో ఉపయోగం.</p></div>
+<div class="card"><h3>Tantalum / Supercapacitor</h3><p>Tantalum offers high capacitance density; supercapacitors provide very high capacitance for short-term energy storage.</p><p class="te">టాంటలమ్‌లో అధిక డెన్సిటీ; సూపర్‌కెపాసిటర్లు తాత్కాలిక శక్తి నిల్వకు ఉపయోగపడతాయి.</p></div>
+</div></section>
+<section id="symbols"><h2>03 · Circuit Symbols | సర్క్యూట్ సింబల్స్</h2><div class="grid">
+<div class="card diagram"><h3>Non-polarised capacitor</h3><svg viewBox="0 0 320 100"><path d="M20 50 H130 M190 50 H300 M130 20 V80 M190 20 V80" stroke="#46d9e8" stroke-width="4" fill="none"/><text x="145" y="95" fill="#dbeaf5" font-size="12">C</text></svg></div>
+<div class="card diagram"><h3>Polarised capacitor</h3><svg viewBox="0 0 320 100"><path d="M20 50 H130 M190 50 H300 M130 20 V80 M190 20 Q215 50 190 80" stroke="#ffcb6b" stroke-width="4" fill="none"/><text x="105" y="18" fill="#46d9e8" font-size="20">+</text><text x="145" y="95" fill="#dbeaf5" font-size="12">C</text></svg></div>
+</div><p class="small">Schematic conventions can vary slightly by region and CAD library. | సర్క్యూట్ డ్రాయింగ్ ప్రమాణాలు కొద్దిగా మారవచ్చు.</p></section>
+<section id="physics"><h2>04 · Engineering Theory | ఇంజినీరింగ్ సిద్ధాంతం</h2><div class="grid">
+<div class="card"><h3>Capacitance</h3><div class="formula">C = Q / V</div><p>Q = stored charge (C), V = voltage (V).</p><p class="te">కెపాసిటెన్స్ అనేది ప్రతి వోల్ట్‌కు నిల్వయ్యే ఛార్జ్ పరిమాణం.</p></div>
+<div class="card"><h3>Parallel-plate model</h3><div class="formula">C = ε₀ εᵣ A / d</div><p>A = plate area, d = separation, εᵣ = relative permittivity.</p><p class="te">ప్లేట్ విస్తీర్ణం పెరిగితే C పెరుగుతుంది; దూరం పెరిగితే C తగ్గుతుంది.</p></div>
+<div class="card"><h3>Energy stored</h3><div class="formula">E = ½ C V²</div><p>Energy is measured in joules (J).</p><p class="te">నిల్వ శక్తి వోల్టేజ్ వర్గానికి అనుపాతంగా ఉంటుంది.</p></div>
+<div class="card"><h3>Impedance (ideal capacitor)</h3><div class="formula">Z꜀ = 1 / (jωC)</div><p>|Z꜀| = 1/(2πfC). Capacitive reactance decreases as frequency increases.</p><p class="te">ఫ్రీక్వెన్సీ పెరిగే కొద్దీ కెపాసిటివ్ రియాక్టెన్స్ తగ్గుతుంది.</p></div>
+</div><div class="card" style="margin-top:15px"><h3>RC time constant</h3><div class="formula">τ = R C</div><p>At t = τ, charging reaches about 63.2% of its final voltage; discharging falls to about 36.8% of its initial voltage.</p><p class="te">ఒక టైమ్ కాన్స్టెంట్ (τ) తర్వాత ఛార్జింగ్ వోల్టేజ్ తుది విలువలో సుమారు 63.2% అవుతుంది.</p></div></section>
+<section id="circuits"><h2>05 · Circuit Diagrams | సర్క్యూట్ డయాగ్రామ్స్</h2><div class="grid">
+<div class="card diagram"><h3>RC charging circuit</h3><svg viewBox="0 0 480 190"><g stroke="#46d9e8" stroke-width="3" fill="none"><path d="M45 95 H105 l10 -15 20 30 20 -30 20 30 15 -15 H280 V45 M280 145 V95 H435 V95 H45"/><path d="M265 45 H295 M265 145 H295"/></g><g fill="#eaf4ff" font-size="15"><text x="15" y="84">Vₛ</text><text x="135" y="65">R</text><text x="300" y="100">C</text><text x="300" y="35">+</text></g><path d="M280 45 V145" stroke="#ffcb6b" stroke-width="4"/><text x="320" y="165" fill="#a9bfd2" font-size="12">Capacitor voltage Vc(t)</text></svg><p class="small">Series resistor limits current while the capacitor charges.</p></div>
+<div class="card diagram"><h3>RC discharge circuit</h3><svg viewBox="0 0 480 190"><g stroke="#ffcb6b" stroke-width="3" fill="none"><path d="M45 95 H120 V45 H280 V95 H435 V145 H120 V95 H45"/><path d="M265 45 H295 M265 145 H295"/><path d="M120 45 l-10 12 20 12 -20 12 10 12"/></g><text x="125" y="28" fill="#eaf4ff" font-size="14">R</text><text x="305" y="100" fill="#eaf4ff" font-size="14">C</text><path d="M280 45 V145" stroke="#46d9e8" stroke-width="4"/></svg><p class="small">The stored energy is released through the resistor.</p></div>
+</div></section>
+<section id="sim"><h2>06 · Interactive RC Simulator | ఇంటరాక్టివ్ సిమ్యులేటర్</h2>
+<div class="card"><p>Adjust R, C and supply voltage. The graph shows ideal capacitor voltage during charging and discharging.</p><p class="te">R, C మరియు సరఫరా వోల్టేజ్ మార్చి ఛార్జింగ్/డిశ్చార్జింగ్ గ్రాఫ్‌ను చూడండి.</p>
+<div class="grid">
+<div><label>Resistance R: <b id="rval">10 kΩ</b></label><input id="r" type="range" min="1" max="100" value="10"><label>Capacitance C: <b id="cval">100 µF</b></label><input id="c" type="range" min="10" max="1000" step="10" value="100"><label>Supply voltage: <b id="vval">5 V</b></label><input id="v" type="range" min="1" max="24" value="5"><label>Mode</label><select id="mode" style="width:100%;padding:10px;background:#071725;color:white;border:1px solid #31536b;border-radius:8px"><option value="charge">Charging</option><option value="discharge">Discharging</option></select><p>Time constant τ: <span class="metric" id="tau">1.00 s</span></p><p>Energy at final voltage: <span class="metric" id="energy">1.25 mJ</span></p><button id="play">Run animation</button> <button id="reset" style="background:#ffcb6b">Reset</button></div>
+<div><canvas id="plot" width="700" height="300"></canvas><p class="small" id="readout">At t = 0, Vc = 0 V.</p></div>
+</div></div></section>
+<section id="applications"><h2>07 · Applications | ఉపయోగాలు</h2><div class="grid">
+<div class="card"><h3>Power supply filtering</h3><p>Reduces ripple after rectification. | రెక్టిఫికేషన్ తర్వాత రిపుల్‌ను తగ్గిస్తుంది.</p></div>
+<div class="card"><h3>Decoupling / bypass</h3><p>Supplies transient current and shunts high-frequency noise. | హై-ఫ్రీక్వెన్సీ నాయిస్‌ను తగ్గిస్తుంది.</p></div>
+<div class="card"><h3>Timing & oscillators</h3><p>RC networks set delays and frequency behaviour. | ఆలస్యం, ఫ్రీక్వెన్సీ నియంత్రణలో ఉపయోగం.</p></div>
+<div class="card"><h3>Motor start / run</h3><p>Specific AC motors use capacitors to create phase shift. | కొన్ని AC మోటార్లలో ఫేజ్ షిఫ్ట్ కోసం వాడతారు.</p></div>
+<div class="card"><h3>Signal coupling</h3><p>Passes changing signals while blocking steady DC in suitable circuits. | తగిన సర్క్యూట్‌లో AC సిగ్నల్‌ను పంపి DCని అడ్డుకుంటుంది.</p></div>
+<div class="card"><h3>Energy storage</h3><p>Camera flashes, pulse circuits and supercapacitor backup. | ఫ్లాష్‌లు, పల్స్ సర్క్యూట్లు, బ్యాకప్‌లో ఉపయోగం.</p></div>
+</div></section>
+<section id="resources"><h2>08 · Video Resources & Virtual Labs | వీడియోలు మరియు వర్చువల్ ల్యాబ్స్</h2><div class="card links">
+<a href="https://www.youtube.com/results?search_query=capacitor+charging+discharging+RC+circuit+simulation" target="_blank" rel="noopener">▶ RC capacitor charging & discharging simulation videos</a>
+<a href="https://www.youtube.com/results?search_query=capacitor+working+principle+animation" target="_blank" rel="noopener">▶ Capacitor working principle animation</a>
+<a href="https://www.falstad.com/circuit/" target="_blank" rel="noopener">⚡ Falstad Circuit Simulator — build and test RC circuits</a>
+<a href="https://www.tinkercad.com/circuits" target="_blank" rel="noopener">⚡ Tinkercad Circuits — virtual electronics experiments</a>
+<a href="https://www.allaboutcircuits.com/textbook/" target="_blank" rel="noopener">📘 All About Circuits — electronics textbook</a>
+</div><p class="small">Video links open YouTube search results so you can choose a suitable demonstration. Internet is required for external resources.</p></section>
+<section><h2>09 · Safety & Design Notes | భద్రత</h2><div class="card"><p><b>Warning:</b> Capacitors can retain dangerous charge after power is removed. High-voltage capacitors must be discharged using an appropriately rated resistor and verified with a meter by a trained person. Never short a capacitor with a screwdriver. Observe polarity and voltage rating for electrolytic capacitors.</p><p class="te">జాగ్రత్త: పవర్ ఆఫ్ చేసిన తర్వాత కూడా కెపాసిటర్‌లో ప్రమాదకర ఛార్జ్ ఉండవచ్చు. హై-వోల్టేజ్ కెపాసిటర్లను నిపుణుల పర్యవేక్షణలో సరైన రెసిస్టర్‌తో డిశ్చార్జ్ చేసి మీటర్‌తో నిర్ధారించాలి. స్క్రూడ్రైవర్‌తో షార్ట్ చేయకండి. పోలారిటీ, వోల్టేజ్ రేటింగ్ పాటించండి.</p></div></section>
+</main><footer><div class="wrap">CAPACITOR ENGINEERING LAB · School project learning resource · English + Telugu<br>Ideal RC model only; real components have ESR, leakage, tolerance, dielectric absorption and voltage/frequency limits.</div></footer>
+<script>
+const $=id=>document.getElementById(id), r=$('r'),c=$('c'),v=$('v'),mode=$('mode'),plot=$('plot');
+let elapsed=0, anim=false, raf=0;
+function fmt(n){return n>=1? n.toFixed(2)+' s':(n*1000).toFixed(2)+' ms'}
+function values(){let R=+r.value*1000,C=+c.value/1e6,V=+v.value,tau=R*C;return {R,C,V,tau,E:.5*C*V*V}}
+function voltage(t,p){return mode.value==='charge'?p.V*(1-Math.exp(-t/p.tau)):p.V*Math.exp(-t/p.tau)}
+function draw(){let p=values(),ctx=plot.getContext('2d'),w=plot.width,h=plot.height;ctx.clearRect(0,0,w,h);ctx.strokeStyle='#29465d';ctx.lineWidth=1;for(let i=0;i<=5;i++){let y=20+i*(h-45)/5;ctx.beginPath();ctx.moveTo(48,y);ctx.lineTo(w-12,y);ctx.stroke()}ctx.fillStyle='#b6cadb';ctx.font='13px sans-serif';ctx.fillText('Voltage (V)',8,14);ctx.fillText('Time',w-55,h-5);ctx.strokeStyle='#46d9e8';ctx.lineWidth=3;ctx.beginPath();for(let i=0;i<=300;i++){let t=i/300*5*p.tau,x=48+i/300*(w-65),y=h-25-voltage(t,p)/Math.max(p.V,1)*(h-55);i?ctx.lineTo(x,y):ctx.moveTo(x,y)}ctx.stroke();let t=Math.min(elapsed,5*p.tau),x=48+t/(5*p.tau)*(w-65),y=h-25-voltage(t,p)/Math.max(p.V,1)*(h-55);ctx.fillStyle='#ffcb6b';ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);ctx.fill();$('readout').textContent=`t = ${fmt(t)} · Vc = ${voltage(t,p).toFixed(3)} V · ${mode.value}`;}
+function update(){let p=values();$('rval').textContent=(p.R/1000).toFixed(0)+' kΩ';$('cval').textContent=(p.C*1e6).toFixed(0)+' µF';$('vval').textContent=p.V+' V';$('tau').textContent=fmt(p.tau);$('energy').textContent=(p.E*1000).toFixed(3)+' mJ';draw()}
+function tick(){if(!anim)return;elapsed+=Math.max(values().tau/100,0.01);draw();if(elapsed>=5*values().tau){anim=false;$('play').textContent='Run animation';return}raf=requestAnimationFrame(tick)}
+[r,c,v,mode].forEach(el=>el.addEventListener('input',()=>{elapsed=0;update()}));
+$('play').onclick=()=>{if(anim){anim=false;cancelAnimationFrame(raf);$('play').textContent='Run animation'}else{elapsed=0;anim=true;$('play').textContent='Pause';tick()}};
+$('reset').onclick=()=>{anim=false;cancelAnimationFrame(raf);elapsed=0;r.value=10;c.value=100;v.value=5;mode.value='charge';$('play').textContent='Run animation';update()};
+update();
+</script>
+</body></html>
